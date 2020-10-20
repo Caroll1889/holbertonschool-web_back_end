@@ -2,7 +2,7 @@
 ### :open_file_folder: Specializations - Web Stack programming ― Back-end
 
 <p align="center">
-    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Frealpython.com%2Fasync-io-python%2F&psig=AOvVaw1yl_6Cn_rfZEbFkKcYBBGY&ust=1603303900341000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCEo9Tiw-wCFQAAAAAdAAAAABAD" alt="async">
+    <img src="https://files.realpython.com/media/Understanding-Asynchronous-Programming-in-Python_Watermarked.4b590c7c03ea.jpg" alt="async">
 </p>
 
 ## Resources
