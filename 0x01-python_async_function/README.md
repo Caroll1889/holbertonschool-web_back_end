@@ -2,7 +2,7 @@
 ### :open_file_folder: Specializations - Web Stack programming ― Back-end
 
 <p align="center">
-    <img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2019/12/4aeaa9c3cb1f316c05c4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20201020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201020T175503Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=d73a4477d12f54fe278e47c923d5240eb83ee5bcced648c02cb42276fea4d20f" alt="async">
+    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Frealpython.com%2Fasync-io-python%2F&psig=AOvVaw1yl_6Cn_rfZEbFkKcYBBGY&ust=1603303900341000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCEo9Tiw-wCFQAAAAAdAAAAABAD" alt="async">
 </p>
 
 ## Resources
