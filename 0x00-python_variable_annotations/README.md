@@ -2,7 +2,7 @@
 ### :open_file_folder: Specializations - Web Stack programming ― Back-end
 
 <p align="center">
-    <img src="https://cms-assets.tutsplus.com/uploads/users/34/posts/25594/preview_image/python.jpg" alt="Cookies image">
+    <img src='https://files.realpython.com/media/The-Ultimate-Guide-to-Python-Type-Checking_Watermarked.6fc1c7e40ada.jpg' alt="Cookies image">
 </p>
 
 ## :closed_book: Resources
