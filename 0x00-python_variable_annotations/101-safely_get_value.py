@@ -9,6 +9,7 @@ t_var = TypeVar('T')
 
 def safely_get_value(dct: Mapping, key: Any,
                      default: Union[t_var, None] = None) -> Union[Any, t_var]:
+    """More involved type annotations"""
     if key in dct:
         return dct[key]
     else:
