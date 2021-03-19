@@ -6,7 +6,7 @@ from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    
+
     def __init__(self):
         super().__init__()
         self.line = []
@@ -16,7 +16,7 @@ class FIFOCache(BaseCaching):
 
         if key not in self.line:
             self.line.append(key)
-        
+
         if key is not None or item is not None:
             self.cache_data[key] = item
 
@@ -31,4 +31,3 @@ class FIFOCache(BaseCaching):
             return None
         else:
             return self.cache_data[key]
- 
