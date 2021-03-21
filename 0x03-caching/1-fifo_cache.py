@@ -6,8 +6,10 @@ from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
+    """Class FifoCache"""
 
     def __init__(self):
+        """Constructor """
         super().__init__()
         self.line = []
 
@@ -29,5 +31,4 @@ class FIFOCache(BaseCaching):
         """ Get an item by key """
         if key is None or key not in self.cache_data:
             return None
-        else:
-            return self.cache_data[key]
+        return self.cache_data[key]
