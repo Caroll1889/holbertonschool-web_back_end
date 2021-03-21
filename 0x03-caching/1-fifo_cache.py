@@ -19,7 +19,7 @@ class FIFOCache(BaseCaching):
         if key not in self.line:
             self.line.append(key)
 
-        if key is not None or item is not None:
+        if key is not None and item is not None:
             self.cache_data[key] = item
 
         if len(self.cache_data) > self.MAX_ITEMS:
