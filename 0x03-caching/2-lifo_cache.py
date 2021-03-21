@@ -15,7 +15,7 @@ class LIFOCache(BaseCaching):
 
     def put(self, key, item):
         """ Add an item in the cache with LIFO algorithm """
-        
+
         if key is not None and item is not None:
             self.cache_data[key] = item
 
@@ -23,7 +23,7 @@ class LIFOCache(BaseCaching):
             erase = self.line.pop()
             del self.cache_data[erase]
             print('DISCARD: {}'.format(erase))
-        
+
         if key not in self.line:
             self.line.append(key)
 
