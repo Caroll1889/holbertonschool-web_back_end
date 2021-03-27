@@ -65,6 +65,7 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
 
 
 def main():
+    """function that obtain a database connection"""
     mydb = get_db()
 
     mycursor = mydb.cursor()
@@ -79,6 +80,7 @@ def main():
     formatter.format(record)
 
     mycursor.close()
+
 
 if __name__ == "__main__":
     main()
