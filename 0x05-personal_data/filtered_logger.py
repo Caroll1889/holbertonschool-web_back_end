@@ -62,3 +62,14 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
 
     return mysql.connector.connect(user=user, password=password,
                                    host=host, database=data)
+
+
+def main():
+    mydb = get_db()
+
+    mycursor = mydb.cursor()
+
+    mycursor.execute("SELECT CONCAT ('name=', name, ';ssn=', ssn, ';ip=', ip,\
+        ';user_agent', user_agent, ';') AS message FROM users;")
+
+    #logger = get_logger()
