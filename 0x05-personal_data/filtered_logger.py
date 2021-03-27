@@ -71,5 +71,14 @@ def main():
 
     mycursor.execute("SELECT CONCAT ('name=', name, ';ssn=', ssn, ';ip=', ip,\
         ';user_agent', user_agent, ';') AS message FROM users;")
+    message = mycursor.fetchall()
 
-    #logger = get_logger()
+    record = logging.LogRecord("my_logger", logging.INFO,
+                               None, None, message, None, None)
+    formatter = RedactingFormatter(PII_FIELDS)
+    formatter.format(record)
+
+    mycursor.close()
+
+if __name__ == "__main__":
+    main()
