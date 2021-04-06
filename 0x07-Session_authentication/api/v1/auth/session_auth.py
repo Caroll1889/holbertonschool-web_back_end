@@ -3,6 +3,8 @@
 
 from api.v1.auth.auth import Auth
 from uuid import uuid4
+from typing import List, TypeVar
+from models.user import User
 
 
 class SessionAuth(Auth):
@@ -23,3 +25,14 @@ class SessionAuth(Auth):
         if session_id is None or not isinstance(session_id, str):
             return None
         return self.user_id_by_session_id.get(session_id)
+
+    def current_user(self, request=None) -> TypeVar('User'):
+        """Function that returns a User instance based on a cookie value"""
+        session = self.session_cookie(request)
+
+        if session is None:
+            return None
+
+        user = self.user_id_for_session_id(session)
+
+        return User.get(user)
