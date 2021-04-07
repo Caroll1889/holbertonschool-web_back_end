@@ -15,29 +15,27 @@ def login():
     passwd = request.form.get('password')
 
     if not email:
-        return jsonify({ "error": "email missing" }), 400
+        return jsonify({"error": "email missing"}), 400
 
     if not passwd:
-        return jsonify({ "error": "password missing" }), 400
-    
+        return jsonify({"error": "password missing"}), 400
+
     try:
         user = User.search({'email': email})
     except Exception:
-        return jsonify({ "error": "no user found for this email" }), 404
+        return jsonify({"error": "no user found for this email"}), 404
 
     if not user:
-        return jsonify({ "error": "no user found for this email" }), 404
+        return jsonify({"error": "no user found for this email"}), 404
 
     for i in user:
         if not i.is_valid_password(passwd):
-            return jsonify({ "error": "wrong password" }), 401
+            return jsonify({"error": "wrong password"}), 401
     from api.v1.app import auth
-    user_id = i.id 
+    user_id = i.id
     session = auth.create_session(user_id)
     res = jsonify(i.to_json())
     name = os.getenv('SESSION_NAME')
     res.set_cookie(name, session)
-    
+
     return res
-    
-    
