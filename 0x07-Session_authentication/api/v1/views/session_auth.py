@@ -42,7 +42,7 @@ def login():
     return res
 
 
-@app_views.route('/auth_session/login', methods=['DELETE'],
+@app_views.route('/auth_session/logout', methods=['DELETE'],
                  strict_slashes=False)
 def logout():
     """Function that deletes the user session / logout"""
