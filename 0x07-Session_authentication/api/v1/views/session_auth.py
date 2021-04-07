@@ -31,11 +31,12 @@ def login():
     for i in user:
         if not i.is_valid_password(passwd):
             return jsonify({"error": "wrong password"}), 401
-    from api.v1.app import auth
-    user_id = i.id
-    session = auth.create_session(user_id)
-    res = jsonify(i.to_json())
-    name = os.getenv('SESSION_NAME')
-    res.set_cookie(name, session)
+        else:
+            from api.v1.app import auth
+            user_id = i.id
+            session = auth.create_session(user_id)
+            res = jsonify(i.to_json())
+            name = os.getenv('SESSION_NAME')
+            res.set_cookie(name, session)
 
     return res
