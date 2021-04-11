@@ -5,7 +5,10 @@
 from flask import Flask, jsonify
 
 
-@app.route('/', methods=['GET'])
+app = Flask(__name__)
+
+
+@app.route('/', methods=['GET'], strict_slashes=False)
 def index() -> str:
     """Basic Flask app"""
     return jsonify({"message": "Bienvenue"}), 200
