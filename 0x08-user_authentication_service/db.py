@@ -7,6 +7,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from user import Base, User
+from sqlalchemy.orm.exc import NoResultFound
 
 
 class DB:
@@ -15,7 +16,7 @@ class DB:
     def __init__(self):
         """Constructor
         """
-        self._engine = create_engine("sqlite:///a.db", echo=True)
+        self._engine = create_engine("sqlite:///a.db", echo=False)
         Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         self.__session = None
@@ -36,3 +37,11 @@ class DB:
         self._session.add(new)
         self._session.commit()
         return new
+
+    def find_user_by(self, **kwargs) -> User:
+        """Find a user in a DB"""
+        user = self._session.query(User).filter_by(**kwargs).first()
+
+        if not user:
+            return NoResultFound
+        return user
