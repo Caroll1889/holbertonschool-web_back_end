@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Basic Flask app
+"""Set up a basic Flask app.
 """
 
 from flask import Flask, jsonify
@@ -7,6 +7,7 @@ from flask import Flask, jsonify
 
 @app.route('/', methods=['GET'])
 def index():
+    """Basic Flask app"""
     return jsonify({"message": "Bienvenue"})
 
 
