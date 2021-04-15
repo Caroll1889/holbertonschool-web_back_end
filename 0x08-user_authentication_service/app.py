@@ -61,8 +61,7 @@ def logout():
 
 @app.route('/profile', methods=['GET'], strict_slashes=False)
 def profile() -> str:
-    """User profile
-    """
+    """User profile"""
     session = request.cookies.get('session_id')
 
     if session:
@@ -77,12 +76,12 @@ def profile() -> str:
 def get_reset_password_token() -> str:
     """Function that gets reset password token"""
 
+    email = request.form.get('email')
 
-    try:
-        email = request.form.get('email')
+    if email:
         token = AUTH.get_reset_password_token(email)
         return jsonify({"email": email, "reset_token": token}), 200
-    except Exception:
+    else:
         abort(403)
 
 
