@@ -90,7 +90,7 @@ class Auth:
         """Update password"""
         try:
             user = self._db.find_user_by(reset_token=reset_token)
-            passwd = self._db._hash_password(password)
+            passwd = _hash_password(password)
             self._db.update_user(user.id, hashed_password=passwd,
                                  reset_token=None)
             return None
