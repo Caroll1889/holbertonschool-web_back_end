@@ -51,20 +51,20 @@ class TestMemoize(unittest.TestCase):
     def test_memoize(self):
         """Function that test utils.memoize function"""
 
-    class TestClass:
-        """Test Class"""
+        class TestClass:
+            """Test Class"""
 
-        def a_method(self):
-            """Return 42 method"""
-            return 42
+            def a_method(self):
+                """Return 42 method"""
+                return 42
 
-        @memoize
-        def a_property(self):
-            """a_property method"""
-            return self.a_method()
+            @memoize
+            def a_property(self):
+                """a_property method"""
+                return self.a_method()
 
-    with patch.object(TestClass, 'a_method', return_value=42) as mock:
-        test = TestClass
-        test.a_property
-        test.a_property
-        mock.assert_called_once()
+        with patch.object(TestClass, 'a_method', return_value=42) as mock:
+            test = TestClass
+            test.a_property
+            test.a_property
+            mock.assert_called_once()
