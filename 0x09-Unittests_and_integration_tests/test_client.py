@@ -4,11 +4,12 @@
 import unittest
 from parameterized import parameterized
 from utils import requests, get_json
+import client
 from client import GitHubOrgClient
 from unittest.mock import Mock, patch
 
 
-class TestGitHubOrgClient(unittest.TestCase):
+class TestGithubOrgClient(unittest.TestCase):
     """Class test for client.py"""
 
     @parameterized.expand([
@@ -21,6 +22,6 @@ class TestGitHubOrgClient(unittest.TestCase):
         returns the correct value.
         """
         test_payload.return_value = True
-        i = GitHubOrgClient(org)
+        i = client.GitHubOrgClient(org)
         self.assertEqual(i.org, True)
         test_payload.assert_called_once()
