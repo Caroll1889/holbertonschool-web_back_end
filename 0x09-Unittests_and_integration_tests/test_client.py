@@ -22,6 +22,6 @@ class TestGithubOrgClient(unittest.TestCase):
         returns the correct value.
         """
         test_payload.return_value = True
-        i = client.GitHubOrgClient(org)
+        i = GitHubOrgClient(org)
         self.assertEqual(i.org, True)
         test_payload.assert_called_once()
