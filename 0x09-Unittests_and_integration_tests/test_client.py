@@ -24,7 +24,3 @@ class TestGitHubOrgClient(unittest.TestCase):
             res = i.org
             self.assertEqual(res, test_payload)
             mock.assert_called_once()
-
-    def test_public_repos_url(self):
-        """Function that test client._public_repos_url"""
-        pass
