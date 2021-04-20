@@ -9,7 +9,7 @@ from client import GitHubOrgClient
 from unittest.mock import Mock, patch, PropertyMock
 
 
-class TestGithubOrgClient(unittest.TestCase):
+class TestGitHubOrgClient(unittest.TestCase):
     """Class test for client.py"""
 
     @parameterized.expand([
