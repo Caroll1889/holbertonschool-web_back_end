@@ -55,5 +55,4 @@ class TestGithubOrgClient(unittest.TestCase):
     ])
     def test_has_license(self, rep, key, license):
         """Method to unit-test GithubOrgClient.has_license"""
-        i = GitHubOrgClient('test')
-        self.assertEqual(i.has_license(rep, key), license)
+        self.assertEqual(GitHubOrgClient.has_license(rep, key), license)
