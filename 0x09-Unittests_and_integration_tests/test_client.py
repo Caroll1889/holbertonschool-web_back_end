@@ -5,7 +5,7 @@ import unittest
 from parameterized import parameterized, param
 from utils import requests, get_json
 import client
-from client import GitHubOrgClient
+from client import GithubOrgClient
 from unittest.mock import Mock, patch, PropertyMock
 
 
@@ -21,7 +21,7 @@ class TestGithubOrgClient(unittest.TestCase):
         returns the correct value.
         """
         with patch('client.get_json', return_value=test_payload) as mock:
-            i = GitHubOrgClient(org_name=org)
+            i = GithubOrgClient(org_name=org)
             res = i.org
             self.assertEqual(res, test_payload)
             mock.assert_called_once()
@@ -33,7 +33,7 @@ class TestGithubOrgClient(unittest.TestCase):
 
         with patch('GithubOrgClient.org',
                    PropertyMock(return_value=expected)):
-            i = GitHubOrgClient(org)
+            i = GithubOrgClient(org)
             self.assertEqual(i._public_repos_url, url)
 
     @patch('client.get_json')
@@ -44,7 +44,7 @@ class TestGithubOrgClient(unittest.TestCase):
 
         with patch('GithubOrgClient._public_repos_url',
                    PropertyMock(return_value=return_value)) as mock:
-            i = GitHubOrgClient('test')
+            i = GithubOrgClient('test')
             self.assertEqual(i.public_repos(), ['hi', 'hello'])
             test_payload.assert_called_once()
             mock.assert_called_once()
@@ -55,4 +55,4 @@ class TestGithubOrgClient(unittest.TestCase):
     ])
     def test_has_license(self, rep, key, license):
         """Method to unit-test GithubOrgClient.has_license"""
-        self.assertEqual(GitHubOrgClient.has_license(rep, key), license)
+        self.assertEqual(GithubOrgClient.has_license(rep, key), license)
