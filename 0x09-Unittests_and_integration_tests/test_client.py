@@ -16,15 +16,15 @@ class TestGithubOrgClient(unittest.TestCase):
         ("google"),
         ("abc")
     ])
-    @patch('client.get_json')
     def test_org(self, org, test_payload):
         """Method test that GitHubOrgClient.org
         returns the correct value.
         """
-        test_payload.return_value = True
-        i = GitHubOrgClient(org)
-        self.assertEqual(i.org, True)
-        test_payload.assert_called_once()
+        with patch('client.get_json', return_value=test_payload) as mock:
+            i = GitHubOrgClient(org_name=org)
+            res = i.org
+            self.assertEqual(res, test_payload)
+            mock.assert_called_once()
 
     def test_public_repos_url(self, org):
         """Method to unit-test GitHubOrgClient._public_repos_url"""
