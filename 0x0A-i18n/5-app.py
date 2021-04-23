@@ -4,6 +4,7 @@
 
 from flask import Flask, render_template, request
 from flask_babel import Babel
+from typing import Dict
 
 
 app = Flask(__name__)
@@ -29,11 +30,11 @@ users = {
 }
 
 
-def get_user():
+def get_user() -> Dict:
     """Function that returns a user dictionary"""
 
     try:
-        return users.get(int(users.request.args.get('login_as')))
+        return users.get(int(request.args.get('login_as')))
     except Exception():
         return None
 
