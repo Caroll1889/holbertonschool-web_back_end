@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Get locale from request
 """
-
-from flask import Flask, render_template, request
+Get locale from request
+"""
+from flask import Flask, render_template, request, g
 from flask_babel import Babel
 from typing import Dict
-
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -13,8 +12,7 @@ babel = Babel(app)
 
 class Config(object):
     """ Configuration class"""
-
-    LANGUAGES = ["en", "fr"]
+    LANGUAGES = ['en','fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
@@ -30,19 +28,26 @@ users = {
 }
 
 
+@app.route('/', methods=['GET'], strict_slashes=False)
+def config():
+    """
+    Welcome page
+    """
+    return render_template("5-index.html")
+
+
 def get_user() -> Dict:
     """Function that returns a user dictionary"""
-
     try:
         return users.get(int(request.args.get('login_as')))
-    except Exception():
+    except Exception:
         return None
 
 
 @app.before_request
 def before_request():
-    """Find a user if any"""
-    g.user = get_user()
+   """Find a user if any"""
+   g.user = get_user()
 
 
 @babel.localeselector
@@ -50,17 +55,9 @@ def get_locale():
     """Function that determines the best match with
     the supported languages.
     """
-    if request.args.get('locale'):
-        return request.args.get('locale')
+    if request.args.get("locale"):
+        return request.args.get("locale")
     return request.accept_languages.best_match(app.config['LANGUAGES'])
-
-
-@app.route('/', methods=['GET'], strict_slashes=False)
-def index():
-    """
-    Welcome page
-    """
-    return render_template('5-index.html')
 
 
 if __name__ == "__main__":
