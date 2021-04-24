@@ -12,7 +12,7 @@ babel = Babel(app)
 
 class Config(object):
     """ Configuration class"""
-    LANGUAGES = ['en','fr']
+    LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
@@ -46,8 +46,8 @@ def get_user() -> Dict:
 
 @app.before_request
 def before_request():
-   """Find a user if any"""
-   g.user = get_user()
+    """Find a user if any"""
+    g.user = get_user()
 
 
 @babel.localeselector
