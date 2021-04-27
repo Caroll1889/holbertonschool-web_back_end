@@ -36,7 +36,7 @@ class Cache():
             else:
                 return result
         except Exception:
-            pass
+            return None
 
     def get_str(self, data: bytes) -> str:
         """Function that converts bytes in string"""
