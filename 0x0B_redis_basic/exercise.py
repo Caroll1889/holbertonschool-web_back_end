@@ -5,6 +5,7 @@
 import redis
 from uuid import uuid4
 from typing import Union, Callable, Optional
+import sys
 
 
 class Cache():
@@ -36,3 +37,12 @@ class Cache():
                 return result
         except Exception:
             pass
+
+    def get_str(self, data: bytes) -> str:
+        """Function that converts bytes in string"""
+        return data.decode('utf-8')
+
+    def get_int(self, data: bytes) -> int:
+        """Function that converts bytes in integer"""
+        byte_order = sys.byteorder
+        return int.from_bytes(data, byte_order)
