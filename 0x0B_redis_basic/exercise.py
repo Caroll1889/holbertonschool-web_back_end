@@ -32,7 +32,7 @@ class Cache():
         if fn:
             return fn(self._redis.get(key))
         else:
-            return result
+            return self._redis.get(key)
 
     def get_str(self, data: bytes) -> str:
         """Function that converts bytes in string"""
