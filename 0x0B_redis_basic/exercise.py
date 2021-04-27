@@ -29,10 +29,14 @@ class Cache():
         """
         Reading from Redis
         """
-        if fn:
-            return fn(self._redis.get(key))
-        else:
-            return self._redis.get(key)
+        try:
+            result = self._redis.get(key)
+            if fn:
+                return fn(result)
+            else:
+                return self._redis.get(key)
+        except Exception:
+            pass
 
     def get_str(self, data: bytes) -> str:
         """Function that converts bytes in string"""
