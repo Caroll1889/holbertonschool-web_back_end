@@ -27,7 +27,6 @@ def count_calls(method: Callable) -> Callable:
     return wrapper
 
 
-@count_calls
 class Cache():
     """Cache class"""
     def __init__(self):
@@ -38,6 +37,7 @@ class Cache():
         self._redis = redis.Redis()
         self._redis.flushdb()
 
+    @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """Method that generates a random key"""
         key = str(uuid4())
