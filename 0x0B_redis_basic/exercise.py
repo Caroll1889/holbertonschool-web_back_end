@@ -3,11 +3,31 @@
 """
 
 import redis
+import sys
+from functools import wraps
 from uuid import uuid4
 from typing import Union, Callable, Optional
-import sys
 
 
+def count_calls(method: Callable) -> Callable:
+    """
+    Function that counts how many times methods of
+    the Cache class are called.
+    """
+    key = method.__qualname__
+
+    @wraps(method)
+    def wrapper(self, *args, **kwds):
+        """
+        Function that increments the count for that key
+        every time the method is called
+        """
+        self._redis.incr(key)
+        return method(self, *args, **kwds)
+    return wrapper
+
+
+@count_calls
 class Cache():
     """Cache class"""
     def __init__(self):
