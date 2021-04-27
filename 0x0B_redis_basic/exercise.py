@@ -4,7 +4,7 @@
 
 import redis
 from uuid import uuid4
-from typing import Union
+from typing import Union, Callable, Optional
 
 
 class Cache():
@@ -22,3 +22,17 @@ class Cache():
         key = str(uuid4())
         self._redis.set(key, data)
         return key
+
+    def get(self, key: str,
+            fn: Optional[Callable]) -> Union[str, int, float, bytes]:
+        """
+        Reading from Redis
+        """
+        try:
+            result = self._redis.get(key)
+            if fn:
+                return fn(result)
+            else:
+                return result
+        except Exception:
+            pass
