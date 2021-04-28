@@ -18,7 +18,7 @@ def count_times(method: Callable) -> Callable:
     @wraps(method)
     def wrapper(url):
         """wrapper function"""
-        red.incr(url)
+        red.incr(f'count:{url}')
         page = red.get(url)
         if page:
             return page.decode('utf-8')
