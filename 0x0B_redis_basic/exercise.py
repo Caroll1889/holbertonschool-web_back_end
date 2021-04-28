@@ -52,11 +52,12 @@ def replay():
     """
     red = redis.Redis()
     key = method.__qualname__
-    key.decode('utf-8')
-    count = red.get(key)
+    count = red.get(key).decode('utf-8')
     inputs = red.lrange(key + ':inputs', 0, -1)
-    output = red
+    output = r.lrange(key + ':outputs', 0, -1)
+
     print(f'{key} was called {count} times:')
+
     for inp, out in zip(inputs, output):
         print(f'{key}(*{inp.decode("utf-8")}) -> {out.decode("utf-8")}')
 
