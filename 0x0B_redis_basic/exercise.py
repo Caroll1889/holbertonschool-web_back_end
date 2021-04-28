@@ -54,7 +54,7 @@ def replay(method: Callable) -> Callable:
     key = method.__qualname__
     count = red.get(key).decode('utf-8')
     inputs = red.lrange(key + ':inputs', 0, -1)
-    output = r.lrange(key + ':outputs', 0, -1)
+    output = red.lrange(key + ':outputs', 0, -1)
 
     print(f'{key} was called {count} times:')
 
