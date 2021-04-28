@@ -52,8 +52,7 @@ def replay():
     """
     red = redis.Redis()
     key = method.__qualname__
-    key.decode('utf-8')
-    count = red.get(key)
+    count = red.get(key).decode('utf-8')
     inputs = r.lrange(name + 'inputs', 0, -1)
     output = r.lrange(name + 'outputs', 0, -1)
 
