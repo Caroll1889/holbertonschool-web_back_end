@@ -8,7 +8,7 @@ export default async function asyncUploadUser() {
       upload,
       user,
     };
-  } catch (err) {
+  } catch (error) {
     return {
       upload: null,
       user: null,
