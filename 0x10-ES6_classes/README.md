@@ -3,7 +3,7 @@
 
 
 <p align="center">
-    <img src="https://desarrolloweb.com/archivoimg/general/4290.jpg" alt="ECMAScript6>
+    <img src="https://desarrolloweb.com/archivoimg/general/4290.jpg" alt="ECMAScript6">
 </p>
 
 ## :closed_book: Resources
