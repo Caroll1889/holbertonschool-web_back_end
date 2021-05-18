@@ -4,7 +4,7 @@ export default function cleanSet(set, startString) {
   if (!startString || startString.length === 0) return newString;
 
   set.forEach((word) => {
-    if (word.startsWith(startString)) {
+    if (word && word.startsWith(startString)) {
       newString += newString.length === 0 ? word.replace(startString, '') : word.replace(startString, '-');
     }
   });
