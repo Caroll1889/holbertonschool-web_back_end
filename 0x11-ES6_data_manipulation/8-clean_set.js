@@ -1,9 +1,12 @@
 export default function cleanSet(set, startString) {
-  const newArr = [...set];
-  const newWord = startString.length;
-  if (!startString || startString.length === 0) {
-    return '';
-  }
-  const words = newArr.filter((x) => x.startsWith(startString)).map((x) => x.slice(newWord)).join('-');
-  return words;
+  let newString = '';
+  // const newArr = [...set]
+  if (!startString || startString.length === 0) return newString;
+
+  set.forEach((word) => {
+    if (word.startsWith(startString)) {
+      newString += newString.length === 0 ? word.replace(startString, '') : word.replace(startString, '-');
+    }
+  });
+  return newString;
 }
