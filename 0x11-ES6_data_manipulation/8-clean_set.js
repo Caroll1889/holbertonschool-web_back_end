@@ -1,6 +1,6 @@
 export default function cleanSet(set, startString) {
   const newArr = [...set];
-//   const newWord = startString.length;
+  //   const newWord = startString.length;
   if (!startString || startString.length === 0) {
     return '';
   }
