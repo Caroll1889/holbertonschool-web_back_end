@@ -3,12 +3,10 @@ const fs = require('fs');
 module.exports = function countStudents(path) {
   try {
     let data = fs.readFileSync(path, 'utf8').split('\n');
-    data = data.slice(1, data.length);
-
+    data = data.slice(1, data.length - 1);
     console.log(`Number of students: ${data.length}`);
 
     const obj = {};
-
     data.forEach((item) => {
       const student = item.split(',');
       if (!obj[student[3]]) obj[student[3]] = [];
