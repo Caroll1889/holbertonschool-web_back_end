@@ -8,7 +8,7 @@ module.exports = function countStudents(path) {
       }
       if (data) {
         let newData = data.toString().split('\n');
-        newData = newData.slice(1, newData.length);
+        newData = newData.slice(1, newData.length - 1);
         console.log(`Number of students: ${newData.length}`);
         const obj = {};
         let student;
