@@ -1,6 +1,7 @@
 const http = require('http');
 const countStudents = require('./3-read_file_async');
 
+const hostname = '127.0.0.1'
 const port = 1245;
 
 const app = http.createServer(async (req, res) => {
@@ -14,11 +15,13 @@ const app = http.createServer(async (req, res) => {
     try {
       const data = await countStudents(process.argv[2]);
       res.end(`${data.join('\n')}`);
-    } catch (err) {
-      res.end(err.message);
+    } catch (error) {
+      res.end(error.message);
     }
   }
   res.end();
 });
-app.listen(port);
+app.listen(port, hostname, () => {
+  
+});
 module.exports = app;
