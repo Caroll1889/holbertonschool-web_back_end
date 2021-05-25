@@ -8,8 +8,7 @@ const app = http.createServer(async (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   if (req.url === '/') {
     res.write('Hello Holberton School!');
-  }
-  if (req.url === '/students') {
+  } else if (req.url === '/students') {
     res.write('This is the list of our students\n');
     try {
       const student = await countStudents(process.argv[2]);
@@ -18,6 +17,7 @@ const app = http.createServer(async (req, res) => {
       res.end(error.message);
     }
   }
+  res.statusCode = 404;
   res.end();
 });
 app.listen(port);
