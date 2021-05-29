@@ -1,5 +1,4 @@
 const { expect } = require('chai');
-const { response } = require('express');
 const request = require("request");
 
 describe('Basic Integration', () => {
