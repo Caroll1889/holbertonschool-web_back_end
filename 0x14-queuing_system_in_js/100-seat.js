@@ -32,7 +32,7 @@ const app = express();
 const port = 1245;
 
 app.get('/available_seats', async (req, res) => {
-  const available = await getCurrentAvailableSeats;
+  const available = await getCurrentAvailableSeats();
   res.json({ numberOfAvailableSeats: available });
 });
 
